@@ -409,9 +409,9 @@ class RBXInstance:
     def Name(self):
         name_address = self.memory_module.get_pointer(
             self.raw_address,
-            instance_offsets["Name"]
+            instance_offsets["NameContainer"]
         )
-        return self.memory_module.read_string(name_address)
+        return self.memory_module.read_string(name_address + instance_offsets["Name"])
     
     @Name.setter
     def Name(self, value: str):
